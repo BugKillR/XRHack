@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private float fireCD;
+    public bool inTrigger;
 
     private bool canFire = true;
 
@@ -24,6 +25,42 @@ public class PlayerInputs : MonoBehaviour
     private void Update()
     {
         Fire();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Hand"))
+        {
+            inTrigger = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Hand"))
+        {
+            inTrigger = false;
+        }
+    }
+
+    public void FireAim()
+    {
+        if (canFire && inTrigger)
+        {
+        Quaternion currentRotation = bulletSpawn.transform.rotation;
+
+            Quaternion bulletRotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y, currentRotation.eulerAngles.z - 90);
+
+            Instantiate(bullet, bulletSpawn.transform.position, bulletRotation);
+
+            anim.SetTrigger("Fire");
+
+            Debug.Log("Fire"); // Instanciate
+
+            canFire = false;
+
+            StartCoroutine(FireCooldown());
+        }
     }
 
     void Fire()
