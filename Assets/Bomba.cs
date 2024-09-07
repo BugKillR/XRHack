@@ -21,7 +21,7 @@ public class Bomba : MonoBehaviour
         print(other.gameObject);
         if (other.gameObject.CompareTag("Player"))
         {
-            print("yey");
+            FindAnyObjectByType<GameManager>().health -= 5;
             Destroy(gameObject);
         }
         else{
