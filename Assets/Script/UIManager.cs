@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreHolder.text = $"Score: {FindAnyObjectByType<GameManager>().score.ToString()}";
+        scoreHolder.text = $"Score: {FindAnyObjectByType<GameManager>().score.ToString()}\nHealth: {FindAnyObjectByType<GameManager>().health.ToString()}";
 
         if (showBtn.action.WasPressedThisFrame())
         {
