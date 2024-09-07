@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 //using static OVRInput;
 
 
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private float fireCD;
-    public bool inTrigger;
 
     private bool canFire = true;
 
@@ -20,6 +20,8 @@ public class PlayerInputs : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+        grabbable.activated.AddListener(FireAim);
     }
 
     private void Update()
@@ -27,25 +29,9 @@ public class PlayerInputs : MonoBehaviour
         Fire();
     }
 
-    void OnTriggerEnter(Collider other)
+    public void FireAim(ActivateEventArgs arg)
     {
-        if(other.CompareTag("Hand"))
-        {
-            inTrigger = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if(other.CompareTag("Hand"))
-        {
-            inTrigger = false;
-        }
-    }
-
-    public void FireAim()
-    {
-        if (canFire && inTrigger)
+        if (canFire)
         {
         Quaternion currentRotation = bulletSpawn.transform.rotation;
 

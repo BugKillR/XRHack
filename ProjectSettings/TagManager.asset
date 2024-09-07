@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Revolver
   - Hand
+  - obj1
+  - obj2
+  - obj3
   layers:
   - Default
   - TransparentFX
