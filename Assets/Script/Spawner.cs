@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
         if (timer <= 0)
         {
             timeSetter = Random.Range(2f, 10f);
-            int objectIndex = Random.Range(0,4);
+            int objectIndex = Random.Range(0,objectsToSpawn.Length +1);
             GameObject spawnedObject = Instantiate(objectsToSpawn[objectIndex], transform.position, Quaternion.identity);
             timer = timeSetter;
         }

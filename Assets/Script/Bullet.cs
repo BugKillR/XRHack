@@ -41,4 +41,27 @@ public class Bullet : MonoBehaviour
         }
         Destroy(gameObject,5);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("obj1"))
+        {
+            FindAnyObjectByType<GameManager>().score ++;
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("obj2"))
+        {
+            FindAnyObjectByType<GameManager>().score += 2;
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("obj3"))
+        {
+            FindAnyObjectByType<GameManager>().score += 3;
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        Destroy(gameObject,5);
+    }
 }
