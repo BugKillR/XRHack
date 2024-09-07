@@ -12,8 +12,6 @@ public class Targett : MonoBehaviour
 
     public static int time = 0;
 
-    private bool reset = true;
-
     private Vector3 firstLocation;
 
     [SerializeField] private float movingSpeed;
@@ -24,7 +22,7 @@ public class Targett : MonoBehaviour
     }
     private IEnumerator Bekle()
     {
-        time = time + 3;
+        FindAnyObjectByType<GameManagerTG>().time += 2;
 
         yield return new WaitForSeconds(5);
 
@@ -39,7 +37,7 @@ public class Targett : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             transform.rotation = Quaternion.Euler(-90, 180, 0);
-            score += 3;
+            FindAnyObjectByType<GameManagerTG>().score += 5;
         }
 
         if (!didHit)
