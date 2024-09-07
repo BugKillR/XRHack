@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameManagerTG : MonoBehaviour
 {
-    private int score;
+    public int score, time;
 
+    private void Update()
+    {
+        Debug.Log($"Score: {score}");
+        Debug.Log($"\nTime: {time}");
+    }
 }
