@@ -22,7 +22,7 @@ public class Targett : MonoBehaviour
     }
     private IEnumerator Bekle()
     {
-        FindAnyObjectByType<GameManagerTG>().time += 3;
+        FindAnyObjectByType<GameManagerTG>().time += 2;
 
         yield return new WaitForSeconds(5);
 
