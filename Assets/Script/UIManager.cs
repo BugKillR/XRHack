@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
@@ -59,12 +60,12 @@ public class UIManager : MonoBehaviour
 
     public void ReturnMenuButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void RetryButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void StartGame()

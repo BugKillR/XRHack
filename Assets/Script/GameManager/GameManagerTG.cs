@@ -43,6 +43,7 @@ public class GameManagerTG : MonoBehaviour
     {
         Time.timeScale = 1; // Oyunu başlat
         startTimeStamp = Time.time; // Başlangıç zamanını kaydet
+        
         elapsedTime = 0; // Geçen süreyi sıfırla
 
         // Oyun UI'ını ve diğer bileşenleri başlat

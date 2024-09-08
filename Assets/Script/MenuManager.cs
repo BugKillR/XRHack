@@ -5,10 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject phewPhew, coconutShy;
+    public GameObject phewPhew, coconutShy, phewButton, coconutButton;
 
     private float rotationSpeed = 0.1f;  // Speed of rotation in degrees per frame
     private bool rotatingForward = true;  // True means rotating towards 20, false means towards -20
+
+    private AudioSource source;
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+
+        source.loop = true;
+    }
 
     private void Update()
     {
@@ -82,11 +91,25 @@ public class MenuManager : MonoBehaviour
 
     public void PhewPhewButton()
     {
-        SceneManager.LoadScene(2);
+        phewButton.GetComponent<AudioSource>().enabled = true;
+        StartCoroutine(PhewWait());
     }
 
     public void CoconutShyButton()
     {
+        coconutButton.GetComponent<AudioSource>().enabled = true;
+        StartCoroutine(CocoWait());
+    }
+
+    private IEnumerator PhewWait()
+    {
+        yield return new WaitForSeconds(phewButton.GetComponent<AudioSource>().clip.length/3);
+        SceneManager.LoadScene(2);
+    }
+
+    private IEnumerator CocoWait()
+    {
+        yield return new WaitForSeconds(coconutButton.GetComponent<AudioSource>().clip.length/3);
         SceneManager.LoadScene(1);
     }
 

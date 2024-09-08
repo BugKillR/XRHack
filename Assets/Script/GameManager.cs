@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,15 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemys;
 
     public int health = 100;
+
+    private AudioSource source;
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+
+        source.loop = true;
+    }
 
     void Update()
     {
@@ -23,4 +33,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+
 }
