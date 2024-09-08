@@ -10,6 +10,17 @@ public class Target : MonoBehaviour
 
     public static int time = 0;
 
+    public AudioClip clip;
+
+    private AudioSource source;
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+
+        source.clip = clip;
+    }
+
     private IEnumerator Bekle()
     {
         FindAnyObjectByType<GameManagerTG>().time += 1;
@@ -25,6 +36,7 @@ public class Target : MonoBehaviour
     {
         if (other.gameObject && didHit == false)
         {
+            source.PlayOneShot(clip);
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             transform.rotation = Quaternion.Euler(-90, 180, 0);
             FindAnyObjectByType<GameManagerTG>().score += 3;
