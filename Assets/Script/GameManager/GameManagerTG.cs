@@ -148,11 +148,11 @@ private void RotateCocoScore()
 
     public void ReturnMenuButton()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void RetryButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }

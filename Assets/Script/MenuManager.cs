@@ -82,12 +82,12 @@ public class MenuManager : MonoBehaviour
 
     public void PhewPhewButton()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     public void CoconutShyButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void QuitButton()
