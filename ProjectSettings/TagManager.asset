@@ -9,6 +9,7 @@ TagManager:
   - obj1
   - obj2
   - obj3
+  - Ball
   layers:
   - Default
   - TransparentFX
