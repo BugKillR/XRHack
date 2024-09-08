@@ -7,10 +7,15 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     public GameObject target;
 
+    public AudioClip clip;
+
+    private AudioSource source;
+
     Vector3 targetVec;
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
         target = GameObject.FindWithTag("Player");
     }
 
@@ -24,8 +29,18 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            FindAnyObjectByType<GameManager>().health -= 10;
-            Destroy(gameObject);
+            source.clip = clip;
+            source.PlayOneShot(clip);
+
+            StartCoroutine(Wait());
         }
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(clip.length + 0.1f);
+
+        FindAnyObjectByType<GameManager>().health -= 10;
+        Destroy(gameObject);
     }
 }
