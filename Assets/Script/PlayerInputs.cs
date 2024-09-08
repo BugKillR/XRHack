@@ -47,7 +47,7 @@ public class PlayerInputs : MonoBehaviour
 
             audio.clip = gunShot;
 
-            audio.Play();
+            audio.PlayOneShot(gunShot);
 
             Debug.Log("Fire"); // Instanciate
 

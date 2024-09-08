@@ -9936,6 +9936,14 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!81 &672518907
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672518882}
+  m_Enabled: 1
 --- !u!1 &675277861
 GameObject:
   m_ObjectHideFlags: 0
@@ -13554,6 +13562,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5326448953578695390, guid: d97731f88e34db04588efa1473728094,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326448953578695390, guid: d97731f88e34db04588efa1473728094,
+        type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326448953578695390, guid: d97731f88e34db04588efa1473728094,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 530.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326448953578695390, guid: d97731f88e34db04588efa1473728094,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326448953578695390, guid: d97731f88e34db04588efa1473728094,
+        type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0.69722223
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326448953578695390, guid: d97731f88e34db04588efa1473728094,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5664707045455792839, guid: d97731f88e34db04588efa1473728094,
         type: 3}
       propertyPath: _rigidbody
@@ -13601,6 +13639,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 672518898}
+    - targetCorrespondingSourceObject: {fileID: 7828137134083674319, guid: d97731f88e34db04588efa1473728094,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 672518907}
   m_SourcePrefab: {fileID: 100100000, guid: d97731f88e34db04588efa1473728094, type: 3}
 --- !u!1 &900676744
 GameObject:
