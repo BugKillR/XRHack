@@ -16,10 +16,14 @@ public class PlayerInputs : MonoBehaviour
 
     private Animator anim;
 
+    public AudioClip gunShot;
+
+    private AudioSource audio;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(FireAim);
     }
@@ -40,6 +44,10 @@ public class PlayerInputs : MonoBehaviour
             Instantiate(bullet, bulletSpawn.transform.position, bulletRotation);
 
             anim.SetTrigger("Fire");
+
+            audio.clip = gunShot;
+
+            audio.Play();
 
             Debug.Log("Fire"); // Instanciate
 
@@ -75,6 +83,8 @@ public class PlayerInputs : MonoBehaviour
     private IEnumerator FireCooldown()
     {
         yield return new WaitForSeconds(fireCD); // 30 saniye fire1 klibi
+
+        audio.Stop();
 
         canFire = true;
     }
