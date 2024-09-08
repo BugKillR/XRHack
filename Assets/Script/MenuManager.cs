@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -77,5 +79,20 @@ public class MenuManager : MonoBehaviour
 
         // Apply the new rotation
         coconutShy.transform.rotation = Quaternion.Euler(coconutShy.transform.eulerAngles.x, coconutShy.transform.eulerAngles.y, zRotation);
+    }
+
+    public void PhewPhewButton()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void CoconutShyButton()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
     }
 }
