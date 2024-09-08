@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         {
             timeSetter = Random.Range(2f, 10f);
             int objectIndex = Random.Range(0,objectsToSpawn.Length +1);
-            GameObject spawnedObject = Instantiate(objectsToSpawn[objectIndex], transform.position, Quaternion.identity);
+            GameObject spawnedObject = Instantiate(objectsToSpawn[objectIndex], transform.position, transform.rotation);
             timer = timeSetter;
         }
     }

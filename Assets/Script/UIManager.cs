@@ -11,7 +11,8 @@ public class UIManager : MonoBehaviour
     public GameObject menu, endPage, scoreUI;
     public InputActionProperty showBtn;
 
-    public TextMeshProUGUI scoreHolder, endScoreText;
+    public TextMeshProUGUI endScoreText;
+    public TextMeshPro scoreHoldert;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreHolder.text = $"Score: {FindAnyObjectByType<GameManager>().score.ToString()}\nHealth: {FindAnyObjectByType<GameManager>().health.ToString()}";
+        scoreHoldert.text = $"Score: {FindAnyObjectByType<GameManager>().score.ToString()}\nHealth: {FindAnyObjectByType<GameManager>().health.ToString()}";
 
         if (showBtn.action.WasPressedThisFrame())
         {
@@ -65,5 +66,12 @@ public class UIManager : MonoBehaviour
     public void RetryButton()
     {
         SceneManager.LoadScene(3);
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1;
+
+        menu.SetActive(false);
     }
 }
