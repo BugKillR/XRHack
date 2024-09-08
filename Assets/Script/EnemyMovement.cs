@@ -24,7 +24,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("test");
+            FindAnyObjectByType<GameManager>().health -= 10;
+            Destroy(gameObject);
         }
     }
 }
