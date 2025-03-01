@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject menu, endPage, scoreUI;
+    public GameObject menu, endPage;
     public InputActionProperty showBtn;
 
     public TextMeshProUGUI endScoreText;
@@ -33,8 +32,6 @@ public class UIManager : MonoBehaviour
         if (menu.activeSelf == false)
         {
             Time.timeScale = 1;
-
-            scoreUI.SetActive(true);
         }
         else if(menu.activeSelf == true)
         {
@@ -50,8 +47,6 @@ public class UIManager : MonoBehaviour
         {
             endScoreText.text = $"Score: {FindAnyObjectByType<GameManager>().score.ToString()}";
 
-            scoreUI.SetActive(false);
-
             endPage.SetActive(true);
 
             Time.timeScale = 0;
@@ -60,12 +55,12 @@ public class UIManager : MonoBehaviour
 
     public void ReturnMenuButton()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void RetryButton()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     public void StartGame()

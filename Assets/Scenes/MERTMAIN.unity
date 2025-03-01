@@ -2297,7 +2297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 735004493}
   endPage: {fileID: 1367763597}
-  scoreUI: {fileID: 0}
   showBtn:
     m_UseReference: 1
     m_Action:
